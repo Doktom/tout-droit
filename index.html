@@ -76,31 +76,34 @@
     "jump": 740, "jumpCut": 0.45, "coyote": 0.08, "buffer": 0.12
   },
   "solids": [
-    [0, 14, 12, 3], [15, 14, 7, 3], [25, 14, 37, 3], [77, 14, 12, 3],
-    [92, 14, 3, 3], [98, 14, 11, 3], [112, 14, 4, 3], [119, 14, 5, 3],
+    [0, 14, 11, 3], [15, 14, 7, 3], [25, 14, 3, 3], [31, 14, 31, 3], [77, 14, 12, 3],
+    [92, 14, 3, 3], [98, 14, 10, 3], [113, 14, 3, 3], [119, 14, 5, 3],
     [123, 0, 1, 14, "rock"],
     [48, 0, 3, 11, "rock"], [51, 0, 3, 10, "rock"], [54, 0, 4, 11, "rock"],
-    [64, 12, 2, 1, "brick"]
+    [64, 12, 1, 1, "brick"]
   ],
   "fakeFloors": [
     { "x": 22, "y": 14, "w": 3, "h": 3, "cause": "fake" },
+    { "x": 28, "y": 14, "w": 3, "h": 3, "cause": "fake" },
     { "x": 89, "y": 14, "w": 3, "h": 3, "cause": "obey" },
     { "x": 95, "y": 14, "w": 3, "h": 3, "cause": "liar" },
     { "x": 116, "y": 14, "w": 3, "h": 3, "cause": "fakewin", "manual": true, "id": "trap" }
   ],
-  "invisibleBlocks": [[13, 9]],
-  "spikes": [[35, 13, 3, "up"]],
+  "invisibleBlocks": [[13, 9], [23, 9]],
+  "spikes": [[35, 13, 3, "up"], [101, 13, 2, "up"]],
   "popSpikes": [
     { "x": 38, "y": 13, "w": 1, "dir": "up", "trigger": [35, 6, 3, 8], "airborne": true, "cause": "pop" },
+    { "x": 42, "y": 13, "w": 2, "dir": "up", "trigger": [39, 10, 2, 4], "grounded": true, "cause": "pop" },
     { "x": 80, "y": 11, "w": 6, "dir": "down", "trigger": [80, 6, 6, 8], "onJump": true, "cause": "disobey" }
   ],
   "thwomps": [
-    { "x": 51, "y": 10, "w": 3, "h": 1, "trigger": [51, 11, 3, 3], "delay": 0.3, "wait": 1.6, "cause": "thwomp" }
+    { "x": 51, "y": 10, "w": 3, "h": 1, "trigger": [51, 11, 3, 3], "delay": 0.14, "wait": 1.6, "cause": "thwomp" },
+    { "x": 54, "y": 11, "w": 4, "h": 1, "trigger": [55, 12, 3, 2], "delay": 0.12, "wait": 1.6, "cause": "thwomp" }
   ],
-  "crumbles": [{ "x": 68, "y": 11, "w": 2, "delay": 0.45 }],
-  "movers": [{ "x": 71, "y": 12, "w": 2, "dx": 3, "dy": 0, "period": 3.2 }],
+  "crumbles": [{ "x": 68, "y": 11, "w": 1.5, "delay": 0.2 }],
+  "movers": [{ "x": 71, "y": 12, "w": 1.5, "dx": 4, "dy": 0, "period": 2.2 }],
   "coins": [[7, 11], [13, 12], [30, 11], [66, 9], [110, 11]],
-  "checkpoints": [[44, 13], [100, 13]],
+  "checkpoints": [[46, 13], [99, 13]],
   "signs": [
     { "x": 4, "y": 13, "text": "→ SORTIE\nC'est tout droit." },
     { "x": 79, "y": 13, "text": "NE SAUTE PAS." },
@@ -117,8 +120,9 @@
   "narration": [
     { "x": 9,   "mood": "smug",  "text": "Un petit trou. Même toi, tu peux sauter ça." },
     { "x": 18,  "mood": "smug",  "text": "Tu vois ? Je ne suis pas méchant. Juste incompris." },
+    { "x": 26,  "mood": "smug",  "text": "Du sol. Du vrai. Je te jure. Marche tranquille." },
     { "x": 31,  "mood": "bored", "text": "Des piques. On saute PAR-DESSUS. C'est tout le principe, tu suis ?" },
-    { "x": 43,  "mood": "smug",  "text": "Un checkpoint. Je suis vraiment trop gentil avec toi." },
+    { "x": 45,  "mood": "smug",  "text": "Un checkpoint. Je suis vraiment trop gentil avec toi." },
     { "x": 47,  "mood": "smug",  "text": "Un tunnel. Rien de suspect. Avance, avance..." },
     { "x": 59,  "mood": "bored", "text": "Des plateformes. Le b.a.-ba. Ne me déçois pas. Enfin, pas plus que d'habitude." },
     { "x": 78,  "mood": "smug",  "text": "Lis bien les panneaux. Ils sont là pour t'aider. Tous. Sans exception." },
@@ -163,7 +167,8 @@
 
 <!--
   ===================== NIVEAU 2 =====================
-  Les champs absents (physique, jalons de morts, répliques d'inactivité...) sont repris du niveau 1.
+  Seuls physics, milestones, coinLines, idleLines et easyMode manquants sont repris du niveau 1 (et deathLines, fusionnées).
+  Tout le reste (blocs, pièges, pièces...) doit être redéclaré ici ; ce qui n'est pas listé n'existe pas dans ce niveau.
   Nouveautés : springs (ressorts), icicles (stalactites ; range 0 = paresseuse), chasers (le Mur),
   invertZones [x, largeur] (gauche/droite inversées), checkpoint { "fake": true },
   popSpikes "grounded" (seulement au sol), portes "trap" (le sol s'ouvre) / "real".
@@ -175,8 +180,8 @@
   "width": 142,
   "spawn": [2, 13],
   "solids": [
-    [0, 14, 10, 3], [13, 14, 52, 3], [68, 14, 20, 3], [92, 14, 12, 3],
-    [107, 14, 4, 3], [114, 14, 15, 3], [132, 14, 9, 3],
+    [0, 14, 9, 3], [13, 14, 49, 3], [65, 14, 2, 3], [71, 14, 17, 3], [92, 14, 11, 3],
+    [107, 14, 4, 3], [115, 14, 14, 3], [132, 14, 9, 3],
     [141, 0, 1, 14, "rock"],
     [26, 8, 2, 6, "rock"], [30, 2, 7, 1, "rock"],
     [42, 0, 14, 9, "rock"],
@@ -186,26 +191,26 @@
   "fakeFloors": [
     { "x": 129, "y": 14, "w": 3, "h": 3, "cause": "trapdoor", "manual": true, "id": "trap2" }
   ],
-  "spikes": [[30, 3, 7, "down"]],
+  "spikes": [[30, 3, 7, "down"], [35, 13, 1, "up"], [46, 13, 1, "up"], [49, 13, 1, "up"], [52, 13, 1, "up"], [74, 13, 2, "up"], [100, 13, 1, "up"], [133, 13, 1, "up"]],
   "popSpikes": [
     { "x": 77, "y": 13, "w": 3, "dir": "up", "trigger": [77, 10, 3, 4], "grounded": true, "cause": "fakecheck" }
   ],
   "springs": [{ "x": 23, "y": 13 }, { "x": 31, "y": 13, "w": 2 }, { "x": 116, "y": 13 }],
   "icicles": [
-    { "x": 45, "y": 9 }, { "x": 48, "y": 9 }, { "x": 51, "y": 9 },
-    { "x": 54, "y": 9, "range": 0, "cause": "lazy" }
+    { "x": 44, "y": 9, "range": 3 }, { "x": 47, "y": 9, "range": 2.5 }, { "x": 50, "y": 9, "range": 2 },
+    { "x": 53, "y": 9, "range": 0, "cause": "lazy" }, { "x": 55, "y": 9, "range": 1.5 }
   ],
   "chasers": [
-    { "x": 93, "trigger": 99, "stopAt": 118, "speed": 215, "line": "COURS !!!",
+    { "x": 93, "trigger": 98, "stopAt": 118, "speed": 272, "line": "COURS !!!",
       "stopLine": "Ah. Il ne traverse pas les murs. Moi non plus, remarque." }
   ],
-  "invertZones": [[60, 13]],
+  "invertZones": [[58, 18]],
   "coins": [[5, 11], [11, 11], [24, 6], [88, 10], [89, 11], [90, 13], [90, 15], [125, 11]],
   "checkpoints": [[40, 13], { "x": 78, "y": 13, "fake": true }, [84, 13], [96, 13]],
   "signs": [
     { "x": 7, "y": 13, "text": "Aucun piège ici.\n(Vraiment.)" },
     { "x": 21, "y": 13, "text": "BOING →" },
-    { "x": 58, "y": 13, "text": "Zone de contrôle\nnormal." },
+    { "x": 57, "y": 13, "text": "Zone de contrôle\nnormal." },
     { "x": 126, "y": 13, "text": "Une seule de ces\nportes est la bonne." }
   ],
   "doors": [
@@ -221,7 +226,7 @@
     { "x": 15,  "mood": "smug",  "text": "Tu vois ? Aucun piège. Ça te rend parano, hein ? C'est le but." },
     { "x": 20,  "mood": "smug",  "text": "Un ressort ! Tu vas adorer. Au début." },
     { "x": 38,  "mood": "bored", "text": "Une grotte. Le plafond goutte un peu. Rien de grave." },
-    { "x": 61,  "mood": "laugh", "text": "Oh, j'ai oublié de te dire : ici, gauche et droite sont inversées. Désolé. Non." },
+    { "x": 59,  "mood": "laugh", "text": "Oh, j'ai oublié de te dire : ici, gauche et droite sont inversées. Désolé. Non." },
     { "x": 74,  "mood": "smug",  "text": "Un checkpoint ! Il a l'air sympa, celui-là." },
     { "x": 83,  "mood": "smug",  "text": "Celui-ci est un vrai. Peut-être. Tu n'as qu'à le toucher pour voir." },
     { "x": 86,  "mood": "smug",  "text": "Des pièces ! Suis-les, elles connaissent le chemin." },
@@ -254,13 +259,16 @@
 (() => {
 'use strict';
 const T = 32, VW = 960, VH = 544, STEP = 1 / 120;
-// chaque <script type="application/json" id="level-N"> est un niveau ; les champs absents sont repris du niveau 1
+// chaque <script type="application/json" id="level-N"> est un niveau. Seuls le réglage et les textes génériques
+// sont repris du niveau 1 quand ils manquent ; la géométrie et les pièges ne sont JAMAIS hérités.
 const LEVELS = [...document.querySelectorAll('script[type="application/json"][id^="level-"]')].map(s => JSON.parse(s.textContent));
 const BASE = LEVELS[0];
+const INHERIT = ['physics', 'milestones', 'coinLines', 'idleLines', 'easyMode'];
 let LV, PH, LW, levelIdx = 0;
 function setLevel(i) {
   levelIdx = i;
-  LV = { ...BASE, ...LEVELS[i] };
+  LV = { ...LEVELS[i] };
+  for (const k of INHERIT) if (LV[k] == null) LV[k] = BASE[k];
   LV.deathLines = { ...BASE.deathLines, ...(LEVELS[i].deathLines || {}) };
   PH = LV.physics; LW = LV.width * T;
 }
@@ -401,7 +409,7 @@ function resetAll(i = levelIdx, totals = { deaths: 0, time: 0 }) {
   setLevel(i);
   W = buildWorld();
   pl = newPlayer();
-  G = { state: 'title', deaths: 0, time: 0, clock: G ? G.clock : 0, cam: 0, shake: 0, hitstop: 0, deadT: 0, idle: 0, totals, cardT: 0, inverted: false,
+  G = { state: 'title', deaths: 0, time: 0, clock: G ? G.clock : 0, cam: 0, shake: 0, hitstop: 0, deadT: 0, idle: 0, totals, cardT: 0, inverted: false, lastRaw: 0,
         spawn: { x: LV.spawn[0] * T + 5, y: (LV.spawn[1] + 1) * T - 26 }, mood: 'smug', moodT: 0, fakeDone: false, fwT: 0, doorCd: 0, coinIdx: 0 };
   placeAtSpawn();
 }
@@ -418,6 +426,7 @@ function respawn() {
   for (const c of W.icicles) { c.y = c.oy; c.state = 'idle'; c.vy = 0; }
   for (const c of W.chasers) { c.x = c.x0; c.state = 'idle'; }
   for (const d of W.doors) d.laugh = false;
+  G.inverted = false; G.lastRaw = 0;
   placeAtSpawn();
   G.cam = clamp(pl.x - VW * 0.42, 0, LW - VW);
   for (let i = 0; i < 14; i++) addPart(pl.x + 11, pl.y + 13, rand(-120, 120), rand(-160, 40), '#fff', rand(2, 4), 0.4, 'dust', 0);
@@ -436,10 +445,11 @@ function solidList() {
 
 /* ---------- particules ---------- */
 function addPart(x, y, vx, vy, color, size, life, type = 'sq', grav = 900) {
-  if (W.parts.length > 600) return;
+  if (W.parts.length > 600 || window.__game?.bot) return;
   W.parts.push({ x, y, vx, vy, color, size, life, max: life, type, grav, rot: rand(0, 6) });
 }
 function burstConfetti(n) {
+  if (window.__game?.bot) return;
   const cols = ['#ff5a5f', '#ffd23f', '#3bb273', '#4aa8ff', '#b57bff'];
   for (let i = 0; i < n; i++) W.confetti.push({ x: rand(0, VW), y: rand(-200, -10), vx: rand(-60, 60), vy: rand(60, 220), c: cols[i % 5], r: rand(0, 6), vr: rand(-8, 8), life: rand(3, 5) });
 }
@@ -447,7 +457,7 @@ function burstConfetti(n) {
 /* ---------- narrateur ---------- */
 const NR = { el: document.getElementById('narr'), txt: document.getElementById('narrText'), full: '', shown: 0, until: 0, prio: -1, queue: null, vis: false };
 function say(text, mood = 'smug', prio = 1, dur) {
-  if (!text) return;
+  if (!text || window.__game?.bot) return;
   if (NR.vis && NR.prio > prio && G.clock < NR.until) { if (prio > 0) NR.queue = { text, mood, prio, dur }; return; }
   NR.full = text; NR.shown = 0; NR.prio = prio; NR.until = G.clock + (dur || 1.8 + text.length * 0.05);
   NR.vis = true; NR.el.classList.add('show'); NR.txt.textContent = '';
@@ -602,8 +612,13 @@ function updatePlayer(dt) {
   if (p.dead || p.hidden) return;
   let dir = (K.right ? 1 : 0) - (K.left ? 1 : 0);
   if (dir) G.idle = 0;
-  const pcx = p.x + p.w / 2;
-  G.inverted = W.inverts.some(z => pcx >= z.x && pcx < z.x + z.w);
+  // zone miroir, avec hystérésis : les touches s'inversent une fois engagé de 1,5 tuile dans la zone, et ne
+  // reviennent à la normale qu'à 1,5 tuile hors de la zone (ou dès qu'on est sorti ET qu'on change de touche).
+  // Sans ça, pile au bord, la direction changeait à chaque frame : le perso tremblait sur place sans avancer.
+  const pcx = p.x + p.w / 2, raw = dir, near = m => W.inverts.some(z => pcx >= z.x - m && pcx < z.x + z.w + m);
+  if (!G.inverted && W.inverts.some(z => pcx >= z.x + 48 && pcx < z.x + z.w - 48)) G.inverted = true;
+  else if (G.inverted && (!near(48) || ((raw === 0 || raw !== G.lastRaw) && !near(0)))) G.inverted = false;
+  G.lastRaw = raw;
   if (G.inverted) dir = -dir;
   if (p.stun > 0) { p.stun -= dt; dir = 0; }
   let a = p.onGround ? (dir ? PH.accel : PH.friction) : (dir ? PH.airAccel : PH.airFriction);
@@ -1184,7 +1199,9 @@ showTitle();
 requestAnimationFrame(frame);
 // petit accès debug (console) : __game.sim(secondes, {right:true, jump:true})
 window.__game = {
-  get W() { return W; }, get pl() { return pl; }, get G() { return G; }, manual: false,
+  get W() { return W; }, get pl() { return pl; }, get G() { return G; }, manual: false, bot: false, K, step,
+  snap: () => structuredClone({ W, pl, G }),
+  restore(s) { const c = structuredClone(s); W = c.W; pl = c.pl; G = c.G; },
   sim(sec, keys = {}) {
     const prev = K.jump; Object.assign(K, { left: false, right: false, jump: false }, keys);
     if (K.jump && !prev) K.jumpQueued = true;
