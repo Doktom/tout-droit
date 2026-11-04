@@ -40,6 +40,10 @@
   .panel.card{background:transparent;box-shadow:none}
   .panel.card .lvl{font-size:2.2cqw;font-weight:700;letter-spacing:.3em;color:#fff;margin:0 0 .6cqw}
   .panel.card .sub{color:#fff}
+  .gag{margin-top:2.2cqw}
+  .gag .bar{width:30cqw;height:1.4cqw;background:rgba(255,255,255,.25);border-radius:99px;overflow:hidden;margin:0 auto}
+  .gag .bar i{display:block;height:100%;width:0;background:#ffd23f}
+  .gag p{color:#fff;font-size:1.5cqw;margin:.8cqw 0 0}
   .panel.fake h1{color:#3bb273;text-shadow:0 .5cqw 0 #1f7a4a}
   .panel.fake h1.no{color:#ff3b3b;text-shadow:0 .5cqw 0 #8a1010;font-size:12cqw;animation:shake .08s infinite}
   .panel.fake.crash{animation:crash .7s forwards ease-in}
@@ -79,7 +83,7 @@
     [0, 14, 11, 3], [15, 14, 7, 3], [25, 14, 3, 3], [31, 14, 31, 3], [77, 14, 12, 3],
     [92, 14, 3, 3], [98, 14, 10, 3], [113, 14, 3, 3], [119, 14, 5, 3],
     [123, 0, 1, 14, "rock"],
-    [48, 0, 3, 11, "rock"], [51, 0, 3, 10, "rock"], [54, 0, 4, 11, "rock"],
+    [47, 0, 3, 11, "rock"], [50, 0, 6, 10, "rock"], [56, 0, 2, 11, "rock"],
     [64, 12, 1, 1, "brick"]
   ],
   "fakeFloors": [
@@ -97,8 +101,8 @@
     { "x": 80, "y": 11, "w": 6, "dir": "down", "trigger": [80, 6, 6, 8], "onJump": true, "cause": "disobey" }
   ],
   "thwomps": [
-    { "x": 51, "y": 10, "w": 3, "h": 1, "trigger": [51, 11, 3, 3], "delay": 0.14, "wait": 1.6, "cause": "thwomp" },
-    { "x": 54, "y": 11, "w": 4, "h": 1, "trigger": [55, 12, 3, 2], "delay": 0.12, "wait": 1.6, "cause": "thwomp" }
+    { "x": 50, "y": 10, "w": 3, "h": 1, "trigger": [50, 11, 6, 3], "delay": 0.8, "wait": 1.8, "cause": "thwomp" },
+    { "x": 53, "y": 10, "w": 3, "h": 1, "trigger": [50, 11, 6, 3], "delay": 0.8, "wait": 1.8, "cause": "thwomp" }
   ],
   "crumbles": [{ "x": 68, "y": 11, "w": 1.5, "delay": 0.2 }],
   "movers": [{ "x": 71, "y": 12, "w": 1.5, "dx": 4, "dy": 0, "period": 2.2 }],
@@ -106,6 +110,10 @@
   "checkpoints": [[46, 13], [99, 13]],
   "signs": [
     { "x": 4, "y": 13, "text": "→ SORTIE\nC'est tout droit." },
+    { "x": 8, "y": 13, "text": "Trou →\n(oui, c'est un trou)" },
+    { "x": 26, "y": 13, "text": "Sol certifié 100 %\n(sans fissure)" },
+    { "x": 45, "y": 13, "text": "Tunnel de service\n(aucun risque)" },
+    { "x": 100, "y": 13, "text": "Pensez à votre sécurité.\n(Nous, non.)" },
     { "x": 79, "y": 13, "text": "NE SAUTE PAS." },
     { "x": 87, "y": 13, "text": "SAUTE !" },
     { "x": 93, "y": 13, "text": "Ici, tu peux\nmarcher. Promis." }
@@ -123,19 +131,19 @@
     { "x": 26,  "mood": "smug",  "text": "Du sol. Du vrai. Je te jure. Marche tranquille." },
     { "x": 31,  "mood": "bored", "text": "Des piques. On saute PAR-DESSUS. C'est tout le principe, tu suis ?" },
     { "x": 45,  "mood": "smug",  "text": "Un checkpoint. Je suis vraiment trop gentil avec toi." },
-    { "x": 47,  "mood": "smug",  "text": "Un tunnel. Rien de suspect. Avance, avance..." },
+    { "x": 47,  "mood": "smug",  "text": "Un tunnel. Rien de suspect. Avance, avance... Surtout, ne t'arrête pas. Pour aucune raison. Aucune." },
     { "x": 59,  "mood": "bored", "text": "Des plateformes. Le b.a.-ba. Ne me déçois pas. Enfin, pas plus que d'habitude." },
     { "x": 78,  "mood": "smug",  "text": "Lis bien les panneaux. Ils sont là pour t'aider. Tous. Sans exception." },
     { "x": 99,  "mood": "smug",  "text": "Dernier checkpoint. La sortie est juste là. Littéralement." },
     { "x": 113, "mood": "smug",  "text": "Elle ne bougera plus. Enfin... je crois." }
   ],
   "deathLines": {
-    "pit":       ["Tomber dans un trou. Original.", "Gravité : 1 — Toi : 0.", "Il fallait sauter. Je pensais que c'était implicite.", "Les trous, c'est en bas. Pour info."],
+    "pit":       ["Tomber dans un trou. Original.", "Gravité : 1 — Toi : 0.", "Il fallait sauter. Je pensais que c'était implicite.", "Les trous, c'est en bas. Pour info.", "Un trou, ça se contourne. Ou ça se saute. Ou ça t'avale. Tu as choisi.", "Le vide t'a accueilli à bras ouverts. Il est très accueillant."],
     "spike":     ["C'était pointu. Ça se voyait, pourtant.", "Les piques, on saute PAR-DESSUS.", "Aïe. Enfin, j'imagine."],
     "invisible": ["Un bloc invisible ? Ici ? Quelle surprise.", "Tu ne l'as pas vu venir. Normal, il est invisible.", "Maintenant tu le vois. Ça t'aide ? Pas sûr."],
-    "fake":      ["Le sol, c'est comme la confiance : ça se perd vite.", "Ce sol était faux. Comme mes encouragements.", "Il y avait une fissure. Regarde mieux."],
-    "pop":       ["Surprise !", "Celles-là, tu ne les avais pas vues. Moi si.", "Saute plus loin. Beaucoup plus loin."],
-    "thwomp":    ["Écrasé. Il ne fallait pas hésiter.", "Tu as réfléchi. Erreur classique.", "Même le plafond te déteste."],
+    "fake":      ["Le sol, c'est comme la confiance : ça se perd vite.", "Ce sol était faux. Comme mes encouragements.", "Il y avait une fissure. Regarde mieux.", "Le panneau disait « sol certifié ». Les panneaux disent beaucoup de choses.", "Faux sol, vraie chute. C'est de l'équilibre."],
+    "pop":       ["Surprise !", "Celles-là, tu ne les avais pas vues. Moi si.", "Saute plus loin. Beaucoup plus loin.", "Des piques qui sortent du sol. Sans préavis. Sans pardon.", "Atterrir, c'est risqué. Rester en l'air, c'est plus sûr. Essaie."],
+    "thwomp":    ["Écrasé. Il ne fallait pas hésiter.", "Tu as réfléchi. Erreur classique.", "Même le plafond te déteste.", "Deux blocs collés. Pas un seul interstice pour t'échapper. Romantique.", "Ils sont tombés ensemble. Eux, ils sont solidaires.", "Sandwich au joueur. Spécialité de la maison."],
     "crumble":   ["Elle était fragile. Comme toi.", "Il ne fallait pas traîner dessus."],
     "disobey":   ["C'était écrit. EN MAJUSCULES.", "Tu sais lire ? Visiblement non.", "Le panneau disait quoi, déjà ?"],
     "obey":      ["SAUTE, ça veut dire saute.", "Pour une fois que le panneau disait vrai..."],
@@ -145,6 +153,12 @@
   },
   "milestones": {
     "5":   "5 morts. Tu es sûr que les jeux vidéo, c'est ton truc ?",
+    "7":   "7 morts. Chiffre porte-bonheur. Pas pour toi.",
+    "15":  "15 morts. Tu progresses ! Vers le bas, mais tu progresses.",
+    "25":  "25 morts. Je commence à croire que tu le fais exprès.",
+    "35":  "35 morts. J'aurais un conseil. Mais non, c'est plus drôle comme ça.",
+    "60":  "60 morts. Tu bats des records. Pas les bons, mais des records.",
+    "150": "150 morts. À ce stade, c'est de l'art contemporain.",
     "10":  "10 morts. Ma grand-mère en est à 3. Elle est aveugle.",
     "20":  "20 morts. Je commence à m'attacher à toi.",
     "30":  "Petit conseil : Alt+F4 règle tous les problèmes.",
@@ -160,7 +174,7 @@
     "Il n'y a pas de boutique, tu sais.",
     "Toutes les pièces ! Ça ne change absolument rien."
   ],
-  "idleLines": ["Tu attends quoi ? Une invitation ?", "Je m'ennuie.", "Si tu ne bouges pas, tu ne meurs pas. Malin. Lâche, mais malin.", "Allô ?"],
+  "idleLines": ["Tu attends quoi ? Une invitation ?", "Je m'ennuie.", "Si tu ne bouges pas, tu ne meurs pas. Malin. Lâche, mais malin.", "Allô ?", "Je peux attendre. J'ai tout mon temps. Toi aussi, d'ailleurs. Dans une certaine mesure.", "Tu médites ? Ça ne marche pas sur moi."],
   "easyMode": ["Non.", "J'ai dit non.", "Toujours pas.", "Tu insistes ?", "Bon, OK... Non."]
 }
 </script>
@@ -211,6 +225,8 @@
     { "x": 7, "y": 13, "text": "Aucun piège ici.\n(Vraiment.)" },
     { "x": 21, "y": 13, "text": "BOING →" },
     { "x": 57, "y": 13, "text": "Zone de contrôle\nnormal." },
+    { "x": 36, "y": 13, "text": "Ressort ×2\n(l'un est gentil)" },
+    { "x": 118, "y": 13, "text": "Le Mur ne s'arrête pas\npour les piétons." },
     { "x": 126, "y": 13, "text": "Une seule de ces\nportes est la bonne." }
   ],
   "doors": [
@@ -234,13 +250,13 @@
     { "x": 122, "mood": "smug",  "text": "La sortie ! Cette fois, pas de fausse victoire. Promis." }
   ],
   "deathLines": {
-    "spring":    ["Il ne fallait pas atterrir dessus. Évident, non ?", "Boing. Splat.", "Les ressorts, c'est comme moi : imprévisible."],
+    "spring":    ["Il ne fallait pas atterrir dessus. Évident, non ?", "Boing. Splat.", "Les ressorts, c'est comme moi : imprévisible.", "Tu as rebondi. Vers les piques. C'était le plan.", "Un ressort, deux possibilités : la gloire ou le plafond."],
     "icicle":    ["Tu as appris à foncer ? Ici, c'était l'inverse.", "Le plafond goutte. Je t'avais prévenu.", "Patience. Tu connais ? Non ?"],
     "lazy":      ["Celui-là était paresseux. Comme toi.", "Il fallait passer VITE sous celui-là. Logique, non ?", "Tu t'es arrêté pile dessous. Respect."],
     "fakecheck": ["Un checkpoint piégé. Je n'ai honte de rien.", "Tu touches à tout, toi.", "Le drapeau était sympa. Moi, non."],
     "chaser":    ["Le Mur t'a eu. Il court plus vite que tes réflexes.", "Rattrapé par un mur. Joli palmarès.", "Il ne s'arrête jamais. Enfin, presque jamais."],
     "trapdoor":  ["Tu as encore cru à une sortie. Mignon.", "« SORTIE ». Tu lis tout au premier degré, toi.", "Indice : lis l'autre porte."],
-    "mirror":    ["Gauche, droite... C'est dur, hein ?", "Je t'avais prévenu. Après coup, mais quand même.", "Ton cerveau a planté ? Normal."]
+    "mirror":    ["Gauche, droite... C'est dur, hein ?", "Je t'avais prévenu. Après coup, mais quand même.", "Ton cerveau a planté ? Normal.", "À droite, c'est à gauche. À gauche, c'est à droite. Simple, non ?", "Le miroir te renvoie une image. Elle n'est pas flatteuse."]
   },
   "coinLines": [
     "Encore des pièces. Toujours aucune boutique.",
@@ -251,6 +267,111 @@
     "Celle-ci n'a rien de spécial. Comme toi.",
     "Presque toutes ! Ça ne sert toujours à rien.",
     "Toutes ! Félicitations. Pour rien."
+  ]
+}
+</script>
+
+<!--
+  ===================== NIVEAU 3 — LE GUICHET =====================
+  Nouveautés : cannons (canons à réclamations : boulets calculés depuis le temps, aucun état),
+  buttons + gates (un bouton ouvre des portes ; "armedBy" n'active un plafond qu'après l'appui),
+  spikes [x, y, w, dir, "fake"] (piques en carton, dessinés pareil), sky / hills / cloud / stars (thème),
+  cardGag (faux chargement bloqué à 99 %).
+-->
+<script id="level-3" type="application/json">
+{
+  "title": "Le Guichet",
+  "subtitle": "Veuillez patienter. Ou mourir.",
+  "cardGag": true,
+  "sky": ["#2b2150", "#5a3a7a", "#f09a78"],
+  "hills": ["#4b3b73", "#392d5c"],
+  "cloud": "rgba(255,220,240,.3)",
+  "stars": true,
+  "width": 140,
+  "spawn": [2, 13],
+  "solids": [
+    [0, 14, 14, 3], [16, 14, 32, 3], [51, 14, 28, 3], [82, 14, 4, 3], [101, 14, 12, 3], [117, 14, 10, 3], [130, 14, 10, 3],
+    [139, 0, 1, 14, "rock"],
+    [60, 0, 2, 5, "rock"], [62, 0, 14, 10, "rock"],
+    [85, 0, 5, 2, "rock"],
+    [90, 6, 10, 1, "brick"]
+  ],
+  "gates": [{ "id": "g1", "x": 60, "y": 5, "w": 2, "h": 9, "style": "rock" }],
+  "buttons": [{ "id": "b1", "x": 55, "y": 13, "opens": "g1",
+                "line": "Tu as appuyé. TU AS APPUYÉ. Le panneau était pourtant très clair." }],
+  "cannons": [
+    { "x": 47, "y": 13, "dir": -1, "speed": 200, "every": 2.1, "range": 30 },
+    { "x": 99, "y": 5, "dir": -1, "speed": 210, "every": 1.7, "range": 9 }
+  ],
+  "invisibleBlocks": [[25, 10], [39, 10]],
+  "spikes": [
+    [24, 13, 3, "up", "fake"], [33, 13, 2, "up"], [38, 13, 3, "up", "fake"],
+    [86, 2, 3, "down"],
+    [111, 13, 1, "up"], [119, 13, 2, "up", "fake"], [123, 13, 1, "up"]
+  ],
+  "thwomps": [
+    { "id": "c1", "armedBy": "b1", "x": 63, "y": 10, "w": 4, "h": 1, "trigger": [62, 11, 2, 3], "delay": 0.75, "wait": 1.6, "cause": "thwomp" },
+    { "id": "c2", "armedBy": "b1", "x": 67, "y": 10, "w": 4, "h": 1, "trigger": [66, 11, 2, 3], "delay": 0.75, "wait": 1.6, "cause": "thwomp" },
+    { "id": "c3", "armedBy": "b1", "x": 71, "y": 10, "w": 4, "h": 1, "trigger": [70, 11, 2, 3], "delay": 0.75, "wait": 1.6, "cause": "thwomp" }
+  ],
+  "movers": [{ "x": 86, "y": 13, "w": 2.5, "dx": 0, "dy": -8, "period": 6 }],
+  "chasers": [
+    { "x": 100, "trigger": 108, "stopAt": 131, "speed": 280, "cause": "chaser",
+      "line": "VOTRE TOUR EST PASSÉ !!!", "stopLine": "La file s'arrête. Le guichet ferme. Comme toujours." }
+  ],
+  "coins": [[7, 11], [27, 9], [57, 11], [66, 12], [94, 4], [120, 10]],
+  "checkpoints": [[12, 13], [53, 13], [77, 13], [105, 13]],
+  "signs": [
+    { "x": 4, "y": 13, "text": "Guichet n°3 →\n(ouvert de 9h à 9h01)" },
+    { "x": 12, "y": 13, "text": "Prenez un ticket\n(il n'y en a plus)" },
+    { "x": 21, "y": 13, "text": "ATTENTION : piques\n(certains sont faux)" },
+    { "x": 52, "y": 13, "text": "NE PAS APPUYER\n(sérieusement)" },
+    { "x": 58, "y": 13, "text": "Porte close. Sonnez.\n(pas de sonnette)" },
+    { "x": 83, "y": 13, "text": "Ascenseur en panne\n(il monte quand même)" },
+    { "x": 102, "y": 13, "text": "Sortie par ici →\n(suivre la file)" },
+    { "x": 131, "y": 13, "text": "Fermé pour déjeuner\n(depuis 1987)" }
+  ],
+  "doors": [{ "x": 134, "y": 12, "kind": "real", "label": "GUICHET 4" }],
+  "win": { "title": "Dossier accepté !", "sub": "Sous réserve de conformité. La réserve, c'est toi." },
+  "winLine": "Votre dossier a été classé sans suite. Merci de votre patience.",
+
+  "intro": "Bienvenue au Guichet n°3, service des réclamations. Votre réclamation a été reçue. Elle sera rejetée.",
+  "idleLines": [
+    "Veuillez patienter. Veuillez continuer à patienter.",
+    "Temps d'attente estimé : 4 à 6 vies.",
+    "Merci de votre patience. (Sinon on appelle quelqu'un. Personne.)",
+    "Votre appel est important pour nous. Mais pas assez."
+  ],
+  "narration": [
+    { "x": 5,   "mood": "smug",  "text": "Prenez un ticket. Ah, il n'y en a plus. Quelle surprise administrative." },
+    { "x": 18,  "mood": "laugh", "text": "La file d'attente est à droite. Les boulets, ce sont des gens qui s'impatientent. Ils sont très... directs." },
+    { "x": 29,  "mood": "smug",  "text": "Ces piques ? En carton. Mais comment l'aurais-tu su ? Toi, tu sautes. Moi, je ris." },
+    { "x": 36,  "mood": "bored", "text": "Ceux-là sont vrais. Bonne chance pour les différencier. Je suis ravi." },
+    { "x": 45,  "mood": "smug",  "text": "Une porte close et un bouton. Je dis ça, je dis rien." },
+    { "x": 54,  "mood": "laugh", "text": "NE TOUCHE PAS AU BOUTON. C'est écrit. En gros. Avec des parenthèses." },
+    { "x": 64,  "mood": "smug",  "text": "Ces plafonds sont certifiés ISO 9001 : ils tombent normalement." },
+    { "x": 78,  "mood": "bored", "text": "Un checkpoint administratif. Il a été tamponné. Par moi." },
+    { "x": 84,  "mood": "smug",  "text": "L'ascenseur est en panne. Il monte quand même. Par principe." },
+    { "x": 95,  "mood": "smug",  "text": "Les réclamations viennent aussi d'en haut. Au sens littéral." },
+    { "x": 103, "mood": "laugh", "text": "Derrière toi : la file d'attente. Ils ont attendu 40 ans. Ils sont de bonne humeur. Non." },
+    { "x": 121, "mood": "smug",  "text": "Des piques en carton ? Ou pas. Mes félicitations si tu as compris la règle. Il n'y en a pas." },
+    { "x": 132, "mood": "smug",  "text": "Guichet 4 ! Vous êtes sur le point de prendre un numéro. Le 4 000 000." }
+  ],
+  "deathLines": {
+    "bullet":    ["Ta réclamation a été percutée de plein fouet.", "Un boulet de réclamation. Bien visé, le client.", "On ne remonte pas la file par la gauche. Ni par le centre.", "Dossier perforé. Merci de le refaire en 3 exemplaires."],
+    "thwomp":    ["Dossier classé. Verticalement.", "Tamponné. Écrasé. Archivé.", "Votre demande a été écrasée avec succès.", "Ce plafond a conclu votre dossier. Sans appel."],
+    "chaser":    ["La file d'attente t'a rattrapé. Il fallait prendre un ticket.", "Tu as perdu ta place dans la queue. Définitivement.", "Passage prioritaire refusé. Par 4 000 personnes."],
+    "spike":     ["Un VRAI pique ! Quel manque de chance. Ou de sens de la déduction.", "Celui-là n'était pas en carton. Dommage pour toi.", "Les règles sont les règles : certaines piques piquent."],
+    "invisible": ["Un bloc invisible. Comme les frais de dossier : tu ne les vois pas avant.", "Bloc invisible. Administration, tout est invisible : règles, coûts, blocs.", "Tu ne l'as pas vu venir. C'est le principe du service."],
+    "pit":       ["Tu es tombé entre deux services. Ça arrive. Souvent.", "Un trou administratif. Il y en a partout.", "Perdu dans la nature. Ou dans le vide. Pareil."]
+  },
+  "coinLines": [
+    "Une pièce. Le Guichet n'accepte que les chèques.",
+    "Un pourboire ! Pour moi, j'imagine. Merci.",
+    "Encore une pièce. Je les mets dans ma tirelire. Tu la vois, ma tirelire ? Non ?",
+    "Pièce numéro 4. Les frais de dossier augmentent.",
+    "Presque toutes ! Frais de gestion : 100 %.",
+    "Toutes ! Je les garde. Vous comprenez, la comptabilité."
   ]
 }
 </script>
@@ -345,6 +466,7 @@ const sfx = {
   fanfare: () => [523, 659, 784, 1047, 784, 1047, 1319].forEach((f, i) => tone(f, i === 6 ? 0.5 : 0.16, 'square', 0.12, null, i * 0.12)),
   sad: () => [392, 370, 349, 294].forEach((f, i) => tone(f, i === 3 ? 0.7 : 0.28, 'sawtooth', 0.12, i === 3 ? 270 : null, i * 0.3)),
   boing: () => tone(220, 0.25, 'triangle', 0.25, 660),
+  click: () => { tone(180, 0.09, 'square', 0.25, 80); noise(0.12, 0.3, 0.02, 2200); },
 };
 
 /* ---------- monde ---------- */
@@ -355,19 +477,31 @@ function floorBelow(solids, x, w, y) {
   return Math.min(...solids.filter(s => s.x < x + w && s.x + s.w > x && s.y >= y).map(s => s.y), VH + 200);
 }
 
+const armed = t => !t.armedBy || W.buttons.some(b => b.id === t.armedBy && b.pressed);
+// abscisses des boulets vivants d'un canon à l'instant t
+function bulletXs(c, t) {
+  const life = c.range / c.speed, out = [];
+  for (let age = ((t + c.phase) % c.every + c.every) % c.every; age <= life; age += c.every) out.push(c.x + 16 + c.dir * c.speed * age);
+  return out;
+}
+
 function buildWorld() {
   const staticSolids = LV.solids.map(a => ({ ...rect(a), style: a[4] || 'ground' }));
   const w = {
     solids: staticSolids,
     fakes: (LV.fakeFloors || []).map(f => ({ ...rect([f.x, f.y, f.w, f.h]), oy: f.y * T, id: f.id, cause: f.cause, manual: !!f.manual, falling: false, vy: 0, style: 'ground' })),
     invis: (LV.invisibleBlocks || []).map(a => ({ x: a[0] * T, y: a[1] * T, w: T, h: T, revealed: false, bump: 0 })),
-    spikes: (LV.spikes || []).map(s => ({ x: s[0] * T, y: s[1] * T, w: s[2] * T, h: T, dir: s[3] })),
+    spikes: (LV.spikes || []).map(s => ({ x: s[0] * T, y: s[1] * T, w: s[2] * T, h: T, dir: s[3], fake: s[4] === 'fake' })),
     pops: (LV.popSpikes || []).map(p => ({ x: p.x * T, y: p.y * T, w: p.w * T, h: T, dir: p.dir, trig: rect(p.trigger), airborne: !!p.airborne, grounded: !!p.grounded, onJump: !!p.onJump, cause: p.cause, prog: 0, active: false })),
     thwomps: (LV.thwomps || []).map(t => {
-      const o = { x: t.x * T, y: t.y * T, oy: t.y * T, w: t.w * T, h: t.h * T, trig: rect(t.trigger), delay: t.delay, wait: t.wait, cause: t.cause, state: 'idle', timer: 0, vy: 0 };
+      const o = { x: t.x * T, y: t.y * T, oy: t.y * T, w: t.w * T, h: t.h * T, trig: t.trigger ? rect(t.trigger) : null, id: t.id, armedBy: t.armedBy, delay: t.delay, wait: t.wait, cause: t.cause, state: 'idle', timer: 0, vy: 0 };
       o.floor = floorBelow(staticSolids, o.x, o.w, o.y + o.h);
       return o;
     }),
+    // canons : les boulets sont calculés depuis G.time (aucun état), donc rejouables et clonables
+    cannons: (LV.cannons || []).map(c => ({ x: c.x * T, y: c.y * T, dir: c.dir || -1, speed: c.speed || 180, every: c.every || 2.4, range: (c.range || 20) * T, phase: c.phase || 0, cause: c.cause || 'bullet' })),
+    gates: (LV.gates || []).map(g => ({ ...rect([g.x, g.y, g.w, g.h]), id: g.id, style: g.style || 'rock', open: false })),
+    buttons: (LV.buttons || []).map(b => ({ id: b.id, x: b.x * T, y: (b.y + 1) * T - 10, w: T, h: 10, pressed: false, sink: 0, opens: [].concat(b.opens || []), line: b.line })),
     crumbles: (LV.crumbles || []).map(c => ({ x: c.x * T, y: c.y * T, oy: c.y * T, w: c.w * T, h: 16, delay: c.delay, state: 'idle', timer: 0, vy: 0 })),
     movers: (LV.movers || []).map(m => ({ x0: m.x * T, y0: m.y * T, x: m.x * T, y: m.y * T, w: m.w * T, h: 16, dx: m.dx * T, dy: m.dy * T, period: m.period })),
     springs: (LV.springs || []).map(s => ({ x: s.x * T, y: (s.y + 1) * T - 12, w: (s.w || 1) * T, h: 12, power: s.power || 1150, comp: 0 })),
@@ -426,6 +560,9 @@ function respawn() {
   for (const c of W.icicles) { c.y = c.oy; c.state = 'idle'; c.vy = 0; }
   for (const c of W.chasers) { c.x = c.x0; c.state = 'idle'; }
   for (const d of W.doors) d.laugh = false;
+  // un bouton déjà dépassé reste enfoncé ; un bouton encore devant toi se réarme (et sa porte se referme)
+  for (const b of W.buttons) if (b.x > G.spawn.x) { b.pressed = false; b.sink = 0; }
+  for (const g of W.gates) g.open = W.buttons.some(b => b.pressed && b.opens.includes(g.id));
   G.inverted = false; G.lastRaw = 0;
   placeAtSpawn();
   G.cam = clamp(pl.x - VW * 0.42, 0, LW - VW);
@@ -440,6 +577,7 @@ function solidList() {
   for (const c of W.icicles) if (c.state === 'idle' || c.state === 'shake') L.push(c);
   for (const m of W.movers) L.push(m);
   for (const t of W.thwomps) L.push(t);
+  for (const g of W.gates) if (!g.open) L.push(g);
   return L;
 }
 
@@ -535,8 +673,17 @@ function showTitle() {
 
 // carton « NIVEAU N » puis le jeu démarre
 function startGame() {
-  G.state = 'card'; G.cardT = 1.7; G.idle = 0;
-  showOverlay(`<div class="panel card"><p class="lvl">NIVEAU ${levelIdx + 1}</p><h1>${LV.title || ''}</h1>${LV.subtitle ? `<p class="sub">${LV.subtitle}</p>` : ''}</div>`);
+  G.state = 'card'; G.cardT = LV.cardGag ? 3.4 : 1.7; G.idle = 0;
+  const gag = LV.cardGag ? '<div class="gag"><div class="bar"><i id="gagFill"></i></div><p id="gagTxt">Chargement… 0 %</p></div>' : '';
+  showOverlay(`<div class="panel card"><p class="lvl">NIVEAU ${levelIdx + 1}</p><h1>${LV.title || ''}</h1>${LV.subtitle ? `<p class="sub">${LV.subtitle}</p>` : ''}${gag}</div>`);
+}
+// faux chargement : bloqué à 99 %, évidemment
+function updateCardGag() {
+  const f = document.getElementById('gagFill'), t = document.getElementById('gagTxt');
+  if (!f) return;
+  const e = 3.4 - G.cardT, pct = Math.min(99, e * 48);
+  f.style.width = pct + '%';
+  t.textContent = e < 2.3 ? `Chargement… ${Math.floor(pct)} %` : e < 3 ? 'Chargement… 99 %' : 'Toujours 99 %. C\'est normal. Ça arrive.';
 }
 function beginPlay() {
   hideOverlay(); G.state = 'play'; G.idle = 0;
@@ -689,7 +836,7 @@ function updateWorld(dt) {
   // plafonds écraseurs
   for (const t of W.thwomps) {
     if (t.state === 'idle') {
-      if (!pl.dead && !pl.hidden && overlap(pl, t.trig)) { t.state = 'shake'; t.timer = t.delay; sfx.rumble(); }
+      if (t.trig && armed(t) && !pl.dead && !pl.hidden && overlap(pl, t.trig)) { t.state = 'shake'; t.timer = t.delay; sfx.rumble(); }
     } else if (t.state === 'shake') {
       t.timer -= dt; if (t.timer <= 0) { t.state = 'fall'; t.vy = 0; }
     } else if (t.state === 'fall') {
@@ -709,6 +856,7 @@ function updateWorld(dt) {
       if (pl.ground === t && !pl.dead && W.solids.some(s => overlap(pl, s))) die(t.cause);
     }
   }
+  for (const b of W.buttons) b.sink += ((b.pressed ? 1 : 0) - b.sink) * Math.min(1, dt * 20);
   // planches fragiles
   for (const c of W.crumbles) {
     if (c.state === 'shake') { c.timer -= dt; if (c.timer <= 0) { c.state = 'fall'; c.vy = 0; sfx.crack(); } }
@@ -770,7 +918,17 @@ function interact(dt) {
   }
   const hb = hazardBox();
   const sprung = pl.blame && pl.blame.cause === 'spring' && G.time - pl.blame.t < 1.5;
-  for (const s of W.spikes) if (overlap(hb, spikeBox(s))) { die(sprung ? 'spring' : 'spike'); return; }
+  for (const s of W.spikes) if (!s.fake && overlap(hb, spikeBox(s))) { die(sprung ? 'spring' : 'spike'); return; }
+  for (const c of W.cannons) for (const bx of bulletXs(c, G.time)) if (overlap(hb, { x: bx - 10, y: c.y + 6, w: 20, h: 20 })) { die(c.cause); return; }
+  for (const b of W.buttons) {
+    if (b.pressed || pl.vy < 0 || !overlap(pl, { x: b.x + 4, y: b.y - 6, w: b.w - 8, h: b.h + 6 })) continue;
+    b.pressed = true; sfx.click(); G.shake = Math.max(G.shake, 6);
+    for (const g of W.gates) if (b.opens.includes(g.id)) {
+      g.open = true;
+      for (let i = 0; i < 18; i++) addPart(g.x + rand(0, g.w), g.y + rand(0, g.h), rand(-120, 120), rand(-220, 40), '#8a7a9a', rand(3, 6), 0.8);
+    }
+    if (b.line) say(b.line, 'laugh', 2, 3.4);
+  }
   const cx = pl.x + pl.w / 2, cy = pl.y + pl.h / 2;
   for (const q of W.pops) {
     if (!q.active && !q.onJump && pointIn(cx, cy, q.trig) && (!q.airborne || !pl.onGround) && (!q.grounded || pl.onGround)) activatePop(q);
@@ -864,7 +1022,8 @@ function frame(now) {
     if (G.hitstop > 0) G.hitstop -= dt;
     else { acc += dt; while (acc >= STEP) { step(STEP); acc -= STEP; } }
   } else if (G.state === 'card') {
-    G.cardT -= dt; if (G.cardT <= 0) beginPlay();
+    G.cardT -= dt; if (LV.cardGag) updateCardGag();
+    if (G.cardT <= 0) beginPlay();
   }
   cosmetic(dt);
   render();
@@ -884,20 +1043,24 @@ function hud() {
 function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x, y, w, h, r) : ctx.rect(x, y, w, h); }
 
 const CLOUDS = Array.from({ length: 10 }, (_, i) => ({ x: i * 230 + rand(0, 120), y: rand(60, 210), s: rand(0.7, 1.3) }));
+const STARS = Array.from({ length: 70 }, () => ({ x: rand(0, VW), y: rand(0, 300), r: rand(0.6, 1.6), p: rand(0, 6) }));
 function drawSky() {
+  const S = LV.sky || ['#7cc6ff', '#cdeeff', '#fff1d6'];
   const g = ctx.createLinearGradient(0, 0, 0, VH);
-  g.addColorStop(0, '#7cc6ff'); g.addColorStop(0.65, '#cdeeff'); g.addColorStop(1, '#fff1d6');
+  g.addColorStop(0, S[0]); g.addColorStop(0.65, S[1]); g.addColorStop(1, S[2]);
   ctx.fillStyle = g; ctx.fillRect(0, 0, VW, VH);
+  if (LV.stars) { ctx.fillStyle = '#fff'; for (const s of STARS) { ctx.globalAlpha = 0.45 + 0.45 * Math.sin(G.clock * 2 + s.p); ctx.fillRect(s.x, s.y, s.r * 1.6, s.r * 1.6); } ctx.globalAlpha = 1; }
   // nuages
-  ctx.fillStyle = 'rgba(255,255,255,.85)';
+  ctx.fillStyle = LV.cloud || 'rgba(255,255,255,.85)';
   for (const c of CLOUDS) {
     let x = ((c.x - G.cam * 0.12 + G.clock * 6) % 2300 + 2300) % 2300 - 150;
     if (x > VW + 100) continue;
     const y = c.y, s = c.s;
     ctx.beginPath(); ctx.arc(x, y, 22 * s, 0, 7); ctx.arc(x + 26 * s, y - 10 * s, 26 * s, 0, 7); ctx.arc(x + 54 * s, y, 20 * s, 0, 7); ctx.rect(x, y, 54 * s, 20 * s); ctx.fill();
   }
-  hills(0.18, 380, 28, '#b6e3b0', 1 / 170, 1 / 61);
-  hills(0.35, 420, 22, '#8fd08e', 1 / 120, 1 / 47);
+  const H = LV.hills || ['#b6e3b0', '#8fd08e'];
+  hills(0.18, 380, 28, H[0], 1 / 170, 1 / 61);
+  hills(0.35, 420, 22, H[1], 1 / 120, 1 / 47);
 }
 function hills(par, base, amp, color, f1, f2) {
   ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(0, VH);
@@ -1044,6 +1207,33 @@ function drawChaser(c) {
   if (c.state === 'run') { ctx.fillStyle = '#fff'; ctx.font = '700 16px Fredoka, system-ui, sans-serif'; ctx.textAlign = 'right'; ctx.fillText('GRAOU', x - 44, fy + 110); }
 }
 
+function drawButton(b) {
+  if (b.x < G.cam - 50 || b.x > G.cam + VW + 50) return;
+  const base = b.y + b.h, dome = 10 - b.sink * 7;
+  rr(b.x + 2, base - 5, b.w - 4, 5, 2); ctx.fillStyle = '#4a4f63'; ctx.fill();
+  rr(b.x + 7, base - 5 - dome, b.w - 14, dome, 6); ctx.fillStyle = b.pressed ? '#a31f1f' : '#ff3b3b'; ctx.fill();
+  ctx.strokeStyle = '#7a1010'; ctx.lineWidth = 2; ctx.stroke();
+  if (!b.pressed) { ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.fillRect(b.x + 11, base - dome, 7, 2); }
+}
+
+function drawCannon(c) {
+  const d = c.dir, by = c.y + 16;
+  ctx.font = '700 8px Fredoka, system-ui, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  for (const bx of bulletXs(c, G.time)) {
+    if (bx < G.cam - 30 || bx > G.cam + VW + 30) continue;
+    ctx.fillStyle = '#2b1d3a'; ctx.beginPath(); ctx.arc(bx, by, 12, 0, 7); ctx.fill();
+    ctx.strokeStyle = '#6a5a7a'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#fff'; for (const o of [-4.5, 4.5]) { ctx.beginPath(); ctx.arc(bx + d * 2 + o, by - 2, 3.6, 0, 7); ctx.fill(); }
+    ctx.fillStyle = '#1d1630'; for (const o of [-4.5, 4.5]) { ctx.beginPath(); ctx.arc(bx + d * 3.4 + o, by - 1.5, 1.8, 0, 7); ctx.fill(); }
+    ctx.strokeStyle = '#ff5a5f'; ctx.lineWidth = 2.2; ctx.beginPath();
+    ctx.moveTo(bx - 9, by - 9); ctx.lineTo(bx - 1, by - 5); ctx.moveTo(bx + 9, by - 9); ctx.lineTo(bx + 1, by - 5); ctx.stroke();
+  }
+  if (c.x < G.cam - 40 || c.x > G.cam + VW + 40) return;
+  rr(c.x + 3, c.y + 5, 26, 25, 6); ctx.fillStyle = '#4a3d5a'; ctx.fill(); ctx.strokeStyle = '#2b1d3a'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.fillStyle = '#2b1d3a'; ctx.beginPath(); ctx.arc(d < 0 ? c.x - 1 : c.x + 31, by, 9, 0, 7); ctx.fill();
+  ctx.fillStyle = '#e8ebf2'; ctx.fillText('RÉCLAM.', c.x + 16, c.y + 24);
+}
+
 function drawPlayer() {
   if (pl.dead || pl.hidden) return;
   const p = pl, cx = p.x + p.w / 2, by = p.y + p.h;
@@ -1111,6 +1301,7 @@ function render() {
   for (const s of W.signs) drawSign(s);
   for (const k of W.checks) drawCheck(k);
   for (const b of W.solids) drawBlock(b);
+  for (const g of W.gates) if (!g.open) drawBlock(g);
   for (const f of W.fakes) drawBlock(f, !f.manual);
   for (const t of W.thwomps) {
     const jx = t.state === 'shake' ? rand(-2, 2) : 0;
@@ -1144,7 +1335,9 @@ function render() {
     ctx.moveTo(b.x + 8, y + 12); ctx.lineTo(b.x + 13, y + 12); ctx.moveTo(b.x + 19, y + 12); ctx.lineTo(b.x + 24, y + 11);
     ctx.moveTo(b.x + 9, y + 21); ctx.quadraticCurveTo(b.x + 17, y + 26, b.x + 24, y + 18); ctx.stroke();
   }
-  for (const s of W.spikes) drawSpikes(s.x, s.y, s.w, s.dir);
+  for (const s of W.spikes) drawSpikes(s.x, s.y, s.w, s.dir); // les faux piques sont dessinés exactement pareil
+  for (const b of W.buttons) drawButton(b);
+  for (const c of W.cannons) drawCannon(c);
   for (const q of W.pops) {
     if (!q.active) continue;
     if (q.dir === 'up') { ctx.save(); ctx.beginPath(); ctx.rect(q.x - 2, q.y - 4, q.w + 4, T + 4); ctx.clip(); drawSpikes(q.x, q.y, q.w, 'up', 1, (1 - q.prog) * T); ctx.restore(); }
